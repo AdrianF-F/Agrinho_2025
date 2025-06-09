@@ -53,31 +53,37 @@ let carroP;
 let carro1;
 let carro2;
 let carro3;
+let seta;
+let seta2;
+let seta3;
 
 function preload() {
-  playerI1 = loadImage("Imagens/Fazendeiro.png");
-  playerI2 = loadImage("Imagens/Chapéu.png");
-  macaI = loadImage("Imagens/Maçã.png");
-  arvore1 = loadImage("Imagens/Arvore1.png");
-  arvore2 = loadImage("Imagens/Arvore2.png");
-  arvoreG = loadImage("Imagens/ArvoreG.png");
-  trigarao = loadImage("Imagens/Trigos.png");
-  trigarao2 = loadImage("Imagens/Trigos2.png");
-  casa = loadImage("Imagens/Casa.png");
-  trig0 = loadImage("Imagens/Trig0.png");
-  trig1 = loadImage("Imagens/Trig1.png");
-  trig2 = loadImage("Imagens/Trig2.png");
-  trig3 = loadImage("Imagens/Trig3.png");
-  flor1 = loadImage("Imagens/Flor.png");
-  flor2 = loadImage("Imagens/Flor2.png");
-  flor3 = loadImage("Imagens/Flor3.png");
-  carroS = loadImage("Imagens/CarroS.png");
-  carroS2 = loadImage("Imagens/CarroS2.png");
-  carroS3 = loadImage("Imagens/CarroS3.png");
-  carroP = loadImage("Imagens/CarroP.png");
-  carro1 = loadImage("Imagens/Carro1.png");
-  carro2 = loadImage("Imagens/Carro2.png");
-  carro3 = loadImage("Imagens/Carro3.png");
+  playerI1 = loadImage("/Imagens/Fazendeiro.png");
+  playerI2 = loadImage("/Imagens/Chapéu.png");
+  macaI = loadImage("/Imagens/Maçã.png");
+  arvore1 = loadImage("/Imagens/Arvore1.png");
+  arvore2 = loadImage("/Imagens/Arvore2.png");
+  arvoreG = loadImage("/Imagens/ArvoreG.png");
+  trigarao = loadImage("/Imagens/Trigos.png");
+  trigarao2 = loadImage("/Imagens/Trigos2.png");
+  casa = loadImage("/Imagens/Casa.png");
+  trig0 = loadImage("/Imagens/Trig0.png");
+  trig1 = loadImage("/Imagens/Trig1.png");
+  trig2 = loadImage("/Imagens/Trig2.png");
+  trig3 = loadImage("/Imagens/Trig3.png");
+  flor1 = loadImage("/Imagens/Flor.png");
+  flor2 = loadImage("/Imagens/Flor2.png");
+  flor3 = loadImage("/Imagens/Flor3.png");
+  carroS = loadImage("/Imagens/CarroS.png");
+  carroS2 = loadImage("/Imagens/CarroS2.png");
+  carroS3 = loadImage("/Imagens/CarroS3.png");
+  carroP = loadImage("/Imagens/CarroP.png");
+  carro1 = loadImage("/Imagens/Carro1.png");
+  carro2 = loadImage("/Imagens/Carro2.png");
+  carro3 = loadImage("/Imagens/Carro3.png");
+  seta = loadImage("/Imagens/Seta.png");
+  seta2 = loadImage("/Imagens/Seta2.png");
+  seta3 = loadImage("/Imagens/Seta3.png");
 }
 
 let carroE;
@@ -236,6 +242,16 @@ function draw() {
       trigal2();
       trigal3();
     }
+    
+    if (tela === 1 & mouseIsPressed) {
+     image(seta, 30, 200, 50, 50); 
+     image(seta2, 370, 200, 50, 50); 
+    } else if (tela === 2 & mouseIsPressed) {
+      image(seta, 30, 200, 50, 50);
+      } else if (tela === 3 & mouseIsPressed) {
+      image(seta2, 370, 200, 50, 50);
+        } else if (tela === 0 & mouseIsPressed) {
+          image(seta3, 200, 370, 50, 50) }
     
       corrida();
     
@@ -547,10 +563,12 @@ function jogador() {
     textSize(12);
     textAlign(CENTER);
     fill("yellow");
-    text("Você um fazendeiro se preparando para vender é na cidade", 200, 180);
+    text("Você é um fazendeiro se preparando para vender na cidade", 200, 180);
     text("Seu objetivo é coletar as maçãs e o trigo", 200, 200);
     text("Para isso ande até os extremos da tela", 200, 220);
-    text("Após vá até a casa e dirija até a cidade", 200, 240);
+    text("Após, vá até a casa e dirija até a cidade", 200, 240);
+    text("O personagem segue o mouse", 200, 260);
+    text("Clique com o botão do mouse para mostrar opções de caminho", 200, 280);
     if ((keyCode === 70) & keyIsPressed) {
       tela = 1;
     }
@@ -785,7 +803,7 @@ function corrida() {
       if ((carro.y + 60 > 350) & (carro.I3 !== trig0) & (player.x === 293)) {
         tela = 7;
       }
-      if ((millis() - temporizador) / 1000 >= 40) {
+      if ((millis() - temporizador) / 1000 >= 30) {
         tela = 8;
       }
     }
